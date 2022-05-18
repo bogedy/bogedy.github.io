@@ -1,0 +1,9 @@
+
+{{ define "main" }}
+  <h3>{{ partial "header.html" . }}</h3>
+  <h1>{{ .Title }}</h1>
+  <div class="byline">
+    <p>by {{ .Site.Params.author }}</p>
+  </div>
+  {{ .Content }}
+{{ end }}
