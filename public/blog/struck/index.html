@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<title>ak2313.user.srcf.net</title>
+	<link rel="stylesheet" href="https://ak2313.user.srcf.net/draft/css/serenity.css" kind="text/css">
+	<link rel="stylesheet" href="https://ak2313.user.srcf.net/draft/css/aaron.css" kind="text/css">
+	
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+	<script>
+	    document.addEventListener("DOMContentLoaded", function() {
+	        renderMathInElement(document.body, {
+	            delimiters: [
+	                {left: "$$", right: "$$", display: true},
+	                {left: "$", right: "$", display: false}
+	            ]
+	        });
+	    });
+	</script>
+	
+
+	
+	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+	<script>
+	    mermaid.initialize({startOnLoad:true});
+	    document.addEventListener("DOMContentLoaded", function() {
+	    	for (elem of document.getElementsByClassName("language-mermaid")) {
+	    		elem.classList.add("mermaid");
+	    	}
+	    });
+	</script>
+    
+</head>
+<body>
+        <div id="content">
+  <h3>
+
+
+  
+  
+  
+<a href=/draft/>Aaron Kriegman</a> / 
+<a href=/draft/blog/>Blog</a> / 
+</h3>
+  <h1>I Hate Parenthesis</h1>
+  <div class="byline">
+    
+    <p>17 September 2022</p>
+  </div>
+  <p>I hate parenthesis. I think they&rsquo;re a huge curse for the readability and
+writability of both code and math. Consider this code snippet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>sqrt(pow2(scale.x <span style="color:#ff79c6">*</span> (this.x <span style="color:#ff79c6">-</span> that.x)) <span style="color:#ff79c6">+</span> pow2(scale.y <span style="color:#ff79c6">*</span> (this.y <span style="color:#ff79c6">-</span> that.y)))
+</span></span></code></pre></div><p>This is incredibly difficult to parse for a reader of this code, especially when
+the parenthesis stack up like at the end. This example is fairly tame with the
+parenthesis only going three layers deep, but it can get worse in the wild.
+Further, say you had originally written this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>sqrt(pow2(this.x <span style="color:#ff79c6">-</span> that.x) <span style="color:#ff79c6">+</span> pow2(this.y <span style="color:#ff79c6">-</span> that.y))
+</span></span></code></pre></div><p>and you later decided you wanted to add the scale factors. Lets show all the
+places where you&rsquo;d have to edit your code:</p>
+<pre tabindex="0"><code>sqrt(pow2(<span class='bold'>scale.x * (</span>this.x - that.x<span class='bold'>)</span>) + pow2(<span class='bold'>scale.y * (</span>this.y - that.y<span class='bold'>)</span>))
+</code></pre><p>Notice how you have to edit your code in four places, even though you&rsquo;re only
+making meaningful changes in two. This is how parenthesis damage writability:
+they make you do a lot of extra cursor jumping. And say you want to later remove
+those scale factors, you have to go back to all four locations again. Especially
+for people who use their mouse to move their cursor, that extra clicking can add
+a lot of friction.</p>
+<p>The next biggest curse in my eyes is assigning values to named variables,
+although there are places where I think this is the right choice. Say I want to
+write the expression</p>
+<p>$$ \frac 1 {\sqrt{x^2 + y^2}} + \sqrt{x^2 + y^2} $$</p>
+<p>I start writing this in code and I get to here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#bd93f9">1</span> <span style="color:#ff79c6">/</span> sqrt(x<span style="color:#ff79c6">^</span><span style="color:#bd93f9">2</span> <span style="color:#ff79c6">+</span> y<span style="color:#ff79c6">^</span><span style="color:#bd93f9">2</span>) <span style="color:#ff79c6">+</span>
+</span></span></code></pre></div><p>At this point I realize that I&rsquo;m about to repeat myself. So I grab my mouse,
+select <code>sqrt(x^2 + y^2)</code>, ctrl-x, click on the end of the line above, press
+enter, write <code>let r =</code>, ctrl-v, <code>;</code>, click back to where I cut the expression
+from, <code>r</code>, click on the end of the line, and finally write <code>r;</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. In most
+popular programming languages, this is what you have to do in order to use the
+same expression twice without repeating yourself.</p>
+<p>Now, in this case the name <code>r</code> was a pretty obvious choice for me. The
+expression that I pulled out represents something meaningful, the distance
+between the points $(0, 0)$ and $(x, y)$, and is commonly given the name $r$. In
+fact, in whatever hypothetical program I would have been writting where this
+expression came up, the odds are high that I would need to use the value <code>r</code>
+many times more, and so this step of hoisting my expression out into a variable
+was worth it. However, there are other situations where the expression I want to
+use twice is not meaningful. Take for example:</p>
+<pre tabindex="0"><code>if data.any(is_nan) || data.any(is_zero) {
+
+  if data.any(is_nan) {
+  	log(&#34;uh oh!&#34;);
+  }
+  
+  return Error;
+}
+</code></pre><!-- raw HTML omitted -->
+<p>Afaict, there is no way to write this control flow without either repeating
+<code>data.any(is_nan)</code> twice or assigning it to a variable, at least with the kind
+of if statements that we have in Python and Rust and Go and every other
+programming language descended from C. This situation came up for me in a
+project I was working on, except the expression I needed to use twice was even
+bigger, and I ended up assigning it to a variable. But the cost of hoisting an
+expression into a variable is more than just cursor jumping. You also have to
+think of a name for that variable. Again, if the variable is meaningful this
+isn&rsquo;t so hard and is probably a good investment, but in most cases the
+expression is not something we want to necessarily assign meaning to. If we name
+it <code>theres_a_nan</code>, then maybe we&rsquo;re not making it clear why that matters. So
+maybe we call it <code>something_went_wrong</code>, but then we still have to worry if
+that&rsquo;s specific enough, or if it&rsquo;s a good representation of what it represents.</p>
+<p>Then when someone else reads your code they also have to take the time to learn
+what your variable means, again damaging the readability of your code.</p>
+<h2 id="the-problem-that-the-problem-solves">The problem that the problem solves</h2>
+<p>These two curses, parenthesis and named variables, solve two problems that arise
+when trying to design a language with arbitrary expressions. Let&rsquo;s take a step
+back and think about what an expression is. Consider our previous example</p>
+<p>$$ \frac 1 {\sqrt{x^2 + y^2}} + \sqrt{x^2 + y^2} $$</p>
+<p>This expression is the sum of two other expressions. The first of those two
+expressions is the ratio of two <em>other</em> expressions. The denominator of that
+ratio is the square root of yet <em>another</em> expression. We can go on recursively
+breaking our expression down into smaller expressions, and we end up with a tree
+structure that looks like this:</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT 
+  D(/) --&gt; P(+) 
+  O(1) &amp; S1(&#34;√&#34;) --&gt; D
+  P1(+) --&gt; S1
+  E11(^) &amp; E12(^) --&gt; P1
+  X1(x) &amp; T11(2) --&gt; E11
+  Y1(y) &amp; T12(2) --&gt; E12
+  S2(&#34;√&#34;) --&gt; P
+  P2(+) --&gt; S2
+  E21(^) --&gt; P2
+  X2(x) --&gt; E21
+  T21(2) --&gt; E21
+  E22(^) --&gt; P2
+  Y2(y) --&gt; E22
+  T22(2) --&gt; E22
+</code></pre><p>Now as you&rsquo;ll probably notice, there&rsquo;s a huge chunk of this tree that is
+duplicated, corresponding to the fact that we wrote the same subexpression
+twice. As mentioned before, the solution allowed by the rules of modern math
+language is to use a variable:</p>
+<p>$$\frac 1r + r \quad\text{where}\quad r = \sqrt{x^2 + y^2}$$</p>
+<p>This corresponds to the structure</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT 
+  D(/) --&gt; P(+) 
+  O(1) --&gt; D
+  R1(r) --&gt; D
+  R2(r) --&gt; P
+
+  R(r) --&gt; EQ(=)
+  S1(&#34;√&#34;) --&gt; EQ
+  P1(+) --&gt; S1
+  E11(^) --&gt; P1
+  X1(x) --&gt; E11
+  T11(2) --&gt; E11
+  E12(^) --&gt; P1
+  Y1(y) --&gt; E12
+  T12(2) --&gt; E12
+</code></pre><p>However, looking at the tree, we can imagine an even more straightforward
+solution:</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT 
+  D(/) --&gt; P(+) 
+  O(1) --&gt; D
+  S1(&#34;√&#34;) --&gt; D
+  P1(+) --&gt; S1
+  E11(^) --&gt; P1
+  X1(x) --&gt; E11
+  T11(2) --&gt; E11
+  E12(^) --&gt; P1
+  Y1(y) --&gt; E12
+  T12(2) --&gt; E12
+  S1 --&gt; P
+</code></pre><p>This is no longer a tree, but rather a more general directed graph.
+Unfortunately, the grammar of modern mathematics only allows us to write
+expressions which have a tree structure, as in the first two examples. If you
+try to come up with some expression with the structure of the third example,
+using standard mathematical language, you will find that it is impossible.</p>
+<p>In human languages, another tool we have to solve this problem is pronouns. You
+can use words like &ldquo;he&rdquo; in your sentence and your listener can figure out from
+context which previously mentioned thing you are referring to. Often times there
+are multiple things which you could be referring to with &ldquo;he&rdquo;, but most of the
+time it&rsquo;s clear to a sentient listener which one makes the most sense. We could
+try using pronouns to write our expression:</p>
+<p>$$\frac 1 {\sqrt{x^2 + y^2}} + \text{him}$$</p>
+<p>but it is not clear whether $\text{him}$ refers to $x^2$, $x^2 + y^2$, or what.</p>
+<!-- raw HTML omitted -->
+<p>The second problem is how to make the tree structure of your expression clear in
+writing. Human languages like English also have this tree structure, but there
+we have the advantage that our listener is capable of resolving ambiguities.
+Often when listening to an English sentence you will have to try out a few
+different tree structures until you find the one that makes sense. Some
+sentences even have multiple structures that make sense and this can be a source
+of jokes. However, with code our audience is computers which have only recently
+become capable of resolving such ambiguities, and in both math and code we want
+our meaning to be completely explicit. So we need to make the tree structure
+completely clear in writing. Our two main tools for this are order of operations
+and parenthesis.</p>
+<p>Consider an expression with the following structure:</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT
+  m1(*) &amp; m2(*) --&gt; p(+)
+  e1(^) &amp; e2(^) --&gt; m1
+  e3(^) &amp; e4(^) --&gt; m2
+  a(a) &amp; t1(2) --&gt; e1
+  b(b) &amp; t2(2) --&gt; e2
+  c(c) &amp; t3(2) --&gt; e3
+  d(d) &amp; t4(2) --&gt; e4
+</code></pre><p>In algebra this can be written succinctly:</p>
+<p>$$a^2 b^2 + c^2 d^2$$</p>
+<p>However, now consider this similar looking structure:</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT
+  m(*) &amp; t(2) --&gt; e(^)
+  p1(+) &amp; p2(+) --&gt; m
+  a(a) &amp; b(b) --&gt; p1
+  c(c) &amp; d(d) --&gt; p2
+</code></pre><p>Here we are not as fortunate:</p>
+<p>$$((a + b)(c + d))^2$$</p>
+<p>What&rsquo;s happening is we&rsquo;re using order of operations as a tool to elide
+parenthesis when possible. It happens that much of the time in math, we first do
+exponentiation, then multiplcation, then addition. When your use case happens to
+align with this common situation, you get the privilage of not having to use
+parenthesis. The rest of us are not so lucky. At the end of the day, the way we
+express the structure of expressions in math is through parenthesis. (And other
+grouping symbols, e.g. $\sqrt{a + b}$ or $\frac 1 {a + b}$.) In particular,
+parenthesis are not just a tool at our disposal for expressing precedence, like
+PEMDAS is. Parenthesis are <em><strong>the</strong></em> way we express precedence, and other
+methods are just nice tools that we are sometimes lucky enough to use.</p>
+<p>This is bad for the reasons expressed above. In math cursor jumping becomes
+pencil jumping, where you have to go back and add parenthesis earlier in your
+expression. This is especially annoying when you didn&rsquo;t leave space for
+parenthesis. <!-- raw HTML omitted --></p>
+<h2 id="other-approaches">Other approaches</h2>
+<p>The syntax&rsquo;s of all the most popular programming languages in the world are just
+variations of C&rsquo;s syntax. C was the successor to B was the successor to BCPL was
+the successor to CPL, which stands for Cambridge Programming Language and was
+designed at Cambridge University, a place steeped in mathematical tradition<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.
+That&rsquo;s popular programming languages and math have to much syntax in common,
+including variables, using parenthesis as the primary means to structure
+expressions, and using parenthesis to call functions.</p>
+<p>I would like to introduce you to two languages which take a different approach:
+Haskell and Forth<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>. In both languages, you don&rsquo;t use parenthesis and commas
+to call functions, but rather you just put the arguments next to the function
+name, separated by spaces. In both languages the expression is then parsed left
+to right, but the difference is that in Forth the arguments are to the left of
+the function (before the function in parsing order), and in Haskell they are to
+the right (after the function). This has some interesting consequences. For
+example, in Haskell we can do things like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#50fa7b">map</span> sqrt <span style="color:#ff79c6">data</span>
+</span></span></code></pre></div><p>Here map is a function that takes another function and a collection, and applies
+that function to every item in the collection, returning the result as a new
+collection. If we wanted to do the same thing in Forth, it might look something
+like</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-forth" data-lang="forth"><span style="display:flex;"><span><span style="color:#50fa7b">data</span> <span style="color:#50fa7b">sqrt</span> <span style="color:#50fa7b">map</span>
+</span></span></code></pre></div><p>But this doesn&rsquo;t do what we want it to do. Because sqrt comes first, this gets
+parsed as <code>map(sqrt(data))</code>, so we end up trying to take the square root of our
+collection, which doesn&rsquo;t make sense. So Haskell makes it convenient to pass
+functions to other functions, whereas this is difficult in Forth. On the other
+hand, say we had an expression with a complicated structure like our previous
+example:</p>
+<p>$$((a + b)(c + d))^2$$</p>
+<p>In Forth this is</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-forth" data-lang="forth"><span style="display:flex;"><span><span style="color:#50fa7b">a</span> <span style="color:#50fa7b">b</span> <span style="color:#ff79c6">+ </span><span style="color:#50fa7b">c</span> <span style="color:#50fa7b">d</span> <span style="color:#ff79c6">+ * </span><span style="color:#bd93f9">2</span> <span style="color:#50fa7b">^</span>
+</span></span></code></pre></div><p>and in Haskell</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#ff79c6">^</span> (<span style="color:#ff79c6">*</span> (<span style="color:#ff79c6">+</span> a b) (<span style="color:#ff79c6">+</span> c d)) <span style="color:#bd93f9">2</span>
+</span></span></code></pre></div><p>The parenthesis are necessary in Haskell because otherwise we would try to
+take * to the power of +. In fact, Forth let&rsquo;s us describe arbitrary tree
+structures without parenthesis. In Haskell on the other hand this is not so
+easy.</p>
+<p>Languages like Forth are called stack based because we can think of each word as
+manipulating a stack: <code>a</code> pushes the value of <code>a</code> onto the stack, <code>+</code> pops the
+top two values off the stack, adds them, and pushes the result onto the stack,
+etc. Other stack based languages include PostScript, WASM, and JVM bytecode, but
+these languages are written by computers more often than by humans.</p>
+<!-- raw HTML omitted -->
+<h2 id="what-i-want-to-do-about-it">What I want to do about it</h2>
+<p>I want to design a language where parenthesis and named variables are unneeded.
+As we saw above, stack based sytax is a great tool for this, so that will be our
+starting point. The problem with stack based syntax is that you can end up
+spending too much time trying to manipulate and reason about this stack. So, to
+that end I want to provide tools for stack manipulations which are simple and
+powerful. Here&rsquo;s what I came up with.</p>
+<p>We&rsquo;ll use the four symbols <code>.</code>, <code>,</code>, <code>:</code>, and <code>;</code> as pictograms for how to pass
+stack values into a function.</p>
+<ul>
+<li><code>.</code> is called pop, and represents taking a value off the stack and using it.</li>
+<li><code>,</code> is called drop, and represents dropping a value from the stack without
+using it.</li>
+<li><code>:</code> is called copy, and represents leaving a value on the stack and using a
+copy of it&rsquo;s value.</li>
+<li><code>;</code> is called nop, and represents leaving a value on the stack unnaffected.</li>
+</ul>
+<p>The lower half of each symbol represents whether the value is use or not, and
+the top half represents whether it&rsquo;s left on the stack. We use these by
+decorating our functions with them, so they line up positionally with the
+arguments they refer to. Using our previous example</p>
+<p>$$ \frac 1 {\sqrt{x^2 + y^2}} + \sqrt{x^2 + y^2} $$</p>
+<p>we would write</p>
+<pre tabindex="0"><code>x 2 ..^ y 2 ..^ ..+ .sqrt 1 ., .:/ ..+
+</code></pre><p>Let&rsquo;s break this down. <code>x 2 ..^</code> says to remove both <code>x</code> and <code>2</code> form the stack,
+take <code>x</code> to the power of <code>2</code>, and push the result onto the stack. By the time we
+get to <code>1</code> our stack is <code>r 1</code>. We need <code>1</code> to the left of <code>r</code>, so we do <code>.,</code>.
+When we use these decorators without a function name, we&rsquo;re calling the identity
+function that just takes it&rsquo;s arguments and pushes them back onto the stack. The
+<code>,</code> says to ignore the <code>1</code>, and the <code>.</code> says to take the <code>r</code>, and so we end up
+with <code>1 r</code> on the stack. Then <code>.:/</code> says to take <code>1</code> and copy <code>r</code>, so that we
+end up with <code>r 1/r</code> on the stack, and finally <code>..+</code> gives us our result. Note
+that I&rsquo;ve explained this as a sequence of stateful operations, but we should
+think of this syntax as more declaritive instead, and maybe I should rewrite
+this section. I think this approach is very powerful and clean, but as we saw
+switching the order of things on the stack is pretty awkward, and I think we
+might need a better tool for that.</p>
+<p>Another great benefit of this syntax is that much of the time you can write
+things in the order you think them, minimizing cursor jumping. Another idea that
+I had is that we can put these decorators on the right side of the function
+indicating that it takes some parameters from the right</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>These days I would do this a bit faster with keyboard shortcuts, but this
+is how I would have done this when I was younger. I&rsquo;d imagine this is a very
+common way to do this.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>This is not a valid English sentence, but you still understood it. What&rsquo;s
+happening here is parts of the sentence are getting used twice (B and BCPL), so
+the structure is no longer a tree. In fact, I would argue that this sentence is
+valid english in every way <em>except</em> that it&rsquo;s not a tree. In fact, we can do
+something similar in math and certain programming languages by writing $a &lt; b &lt;
+c$.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>I&rsquo;ve never actually written Haskell or Forth. In this post I&rsquo;m not really
+talking about these languages as a whole, I&rsquo;m actually talking about highly
+simplified versions of these languages.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+        </div><div class="footer">
+  <hr>
+  Made with <a href="https://gohugo.io/">Hugo</a> and <a href="https://hale.su/serenity.html">serenity.css</a>,
+  clone this site on <a href="https://github.com/akriegman/aaron.kriegman.net">GitHub</a>.
+</div>
+</body>
+</html>

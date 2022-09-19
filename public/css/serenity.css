@@ -195,6 +195,12 @@
   unicode-range: u+4e00-9fbf, u+3040-309f, u+30a0-30ff;
   src: local("Kochi Mincho"), local("Hiragino Mincho Pro"), local("Yu Mincho"), local("MS Mincho"); }
 
+@font-face {
+  font-family: 'GoMonoRegular';
+  src: url('/assets/fonts/go-mono/f505ef2cca209951db796b42d0c2c24d/ac3a15a4b6c3c3a7958a7076f079e59f/GoMonoRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 @viewport {
   zoom: 1;
   width: device-width; }
@@ -339,12 +345,13 @@ pre > code,
 code.listing, p code, li code {
   display: inline-block;
   background-color: hsl(var(--hue), 71%, 25%);
-  font-size: 0.8em;
+  font-size: 0.7em;
   padding: 0 0.5em;
-  text-shadow: 0px 1.2px 0px #2A0017;
+  /* text-shadow: 0px 1.2px 0px #2A0017; */
   border: 1px solid #2A0017;
-  font-family: "Inconsolata", monospace;
-  box-shadow: 0 0 5px -2px black inset; }
+  font-family: "GoMonoRegular", monospace;
+  /* box-shadow: 0 0 5px -2px black inset; */
+} 
   body > code strong, pre > code strong, code.listing strong, p code strong, li code strong {
     /* keywords */
     color: hsl(var(--hue), 100%, 70%); }
@@ -375,7 +382,7 @@ body > code,
 pre > code,
 code.listing {
   display: block;
-  box-shadow: 0 0 8px -2px black inset;
+  /* box-shadow: 0 0 8px -2px black inset; */
   white-space: pre-wrap;
   padding: 0.5em 1em;
   line-height: 1.2em;
@@ -409,7 +416,7 @@ code.listing {
 			 * visible reverse-video effect. */
       color: var(--bg-color) !important;
       background: var(--fg-color) !important;
-      box-shadow: 0 0 30px var(--ul-c);
+      /* box-shadow: 0 0 30px var(--ul-c); */
       text-decoration: none;
       /* browsers normally supply their own (ugly, useless) 
 			 * indicator; we suppress these by blanking outline */
@@ -418,9 +425,11 @@ code.listing {
       color: var(--hi-c);
       text-decoration: underline;
       text-decoration-color: var(--ul-hi-c);
-      text-shadow: 0px 0px 30px var(--glow-c);
+      /* text-shadow: 0px 0px 30px var(--glow-c); */
       background: none !important;
-      box-shadow: none; } }
+      box-shadow: none;
+  }
+} 
 
 div.dir > div {
   /* for div-type directory lists */
@@ -629,7 +638,7 @@ aside {
         border: 1px solid rgba(255, 255, 255, 0.5);
         background-color: hsl(var(--hue), 61%, 15%);
         --box-shadow-color: hsla(var(--hue),54%,30%,0.7);
-        box-shadow: 0 0 40px 0 var(--box-shadow-color);
+        /* box-shadow: 0 0 40px 0 var(--box-shadow-color); */
         /* center the element */
         left: 0;
         right: 0;
@@ -694,5 +703,6 @@ aside {
     text-decoration: none !important; } }
 
 .footer {
-  font-size: 50%;
+  font-size: 70%;
+  text-align: center;
 }

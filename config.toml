@@ -1,5 +1,8 @@
-baseURL = "http://example.org/"
+baseURL = "http://aaron.kriegman.net/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "k.cc"
 params = { author = "Aaron Kriegman" }
+
+[markup.highlight]
+style = "dracula"
