@@ -24,7 +24,12 @@
 	{{ if .Params.mermaid }}
 	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 	<script>
-	    mermaid.initialize({startOnLoad:true});
+	    mermaid.initialize({
+	        startOnLoad: true,
+	        theme: "base",
+	        themeCSS: "overflow: visible;",
+	        fontFamily: "inherit",
+	    });
 	    document.addEventListener("DOMContentLoaded", function() {
 	    	for (elem of document.getElementsByClassName("language-mermaid")) {
 	    		elem.classList.add("mermaid");

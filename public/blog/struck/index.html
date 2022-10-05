@@ -25,7 +25,12 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 	<script>
-	    mermaid.initialize({startOnLoad:true});
+	    mermaid.initialize({
+	        startOnLoad: true,
+	        theme: "base",
+	        themeCSS: "overflow: visible;",
+	        fontFamily: "inherit",
+	    });
 	    document.addEventListener("DOMContentLoaded", function() {
 	    	for (elem of document.getElementsByClassName("language-mermaid")) {
 	    		elem.classList.add("mermaid");
@@ -122,20 +127,20 @@ ratio is the square root of yet <em>another</em> expression. We can go on recurs
 breaking our expression down into smaller expressions, and we end up with a tree
 structure that looks like this:</p>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT 
-  D(/) --&gt; P(+) 
-  O(1) &amp; S1(&#34;√&#34;) --&gt; D
-  P1(+) --&gt; S1
-  E11(^) &amp; E12(^) --&gt; P1
-  X1(x) &amp; T11(2) --&gt; E11
-  Y1(y) &amp; T12(2) --&gt; E12
-  S2(&#34;√&#34;) --&gt; P
-  P2(+) --&gt; S2
-  E21(^) --&gt; P2
-  X2(x) --&gt; E21
-  T21(2) --&gt; E21
-  E22(^) --&gt; P2
-  Y2(y) --&gt; E22
-  T22(2) --&gt; E22
+  D[&#34;/&#34;] --&gt; P[+] 
+  O[1] &amp; S1[&#34;√&#34;] --&gt; D
+  P1[+] --&gt; S1
+  E11[^] &amp; E12[^] --&gt; P1
+  X1[x] &amp; T11[2] --&gt; E11
+  Y1[y] &amp; T12[2] --&gt; E12
+  S2[&#34;√&#34;] --&gt; P
+  P2[+] --&gt; S2
+  E21[^] --&gt; P2
+  X2[x] --&gt; E21
+  T21[2] --&gt; E21
+  E22[^] --&gt; P2
+  Y2[y] --&gt; E22
+  T22[2] --&gt; E22
 </code></pre><p>Now as you&rsquo;ll probably notice, there&rsquo;s a huge chunk of this tree that is
 duplicated, corresponding to the fact that we wrote the same subexpression
 twice. As mentioned before, the solution allowed by the rules of modern math
@@ -143,33 +148,33 @@ language is to use a variable:</p>
 <p>$$\frac 1r + r \quad\text{where}\quad r = \sqrt{x^2 + y^2}$$</p>
 <p>This corresponds to the structure</p>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT 
-  D(/) --&gt; P(+) 
-  O(1) --&gt; D
-  R1(r) --&gt; D
-  R2(r) --&gt; P
+  D[&#34;/&#34;] --&gt; P[+] 
+  O[1] --&gt; D
+  R1[r] --&gt; D
+  R2[r] --&gt; P
 
-  R(r) --&gt; EQ(=)
-  S1(&#34;√&#34;) --&gt; EQ
-  P1(+) --&gt; S1
-  E11(^) --&gt; P1
-  X1(x) --&gt; E11
-  T11(2) --&gt; E11
-  E12(^) --&gt; P1
-  Y1(y) --&gt; E12
-  T12(2) --&gt; E12
+  R[r] --&gt; EQ[=]
+  S1[&#34;√&#34;] --&gt; EQ
+  P1[+] --&gt; S1
+  E11[^] --&gt; P1
+  X1[x] --&gt; E11
+  T11[2] --&gt; E11
+  E12[^] --&gt; P1
+  Y1[y] --&gt; E12
+  T12[2] --&gt; E12
 </code></pre><p>However, looking at the tree, we can imagine an even more straightforward
 solution:</p>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT 
-  D(/) --&gt; P(+) 
-  O(1) --&gt; D
-  S1(&#34;√&#34;) --&gt; D
-  P1(+) --&gt; S1
-  E11(^) --&gt; P1
-  X1(x) --&gt; E11
-  T11(2) --&gt; E11
-  E12(^) --&gt; P1
-  Y1(y) --&gt; E12
-  T12(2) --&gt; E12
+  D[&#34;/&#34;] --&gt; P[+] 
+  O[1] --&gt; D
+  S1[&#34;√&#34;] --&gt; D
+  P1[+] --&gt; S1
+  E11[^] --&gt; P1
+  X1[x] --&gt; E11
+  T11[2] --&gt; E11
+  E12[^] --&gt; P1
+  Y1[y] --&gt; E12
+  T12[2] --&gt; E12
   S1 --&gt; P
 </code></pre><p>This is no longer a tree, but rather a more general directed graph.
 Unfortunately, the grammar of modern mathematics only allows us to write
@@ -198,21 +203,21 @@ completely clear in writing. Our two main tools for this are order of operations
 and parenthesis.</p>
 <p>Consider an expression with the following structure:</p>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT
-  m1(*) &amp; m2(*) --&gt; p(+)
-  e1(^) &amp; e2(^) --&gt; m1
-  e3(^) &amp; e4(^) --&gt; m2
-  a(a) &amp; t1(2) --&gt; e1
-  b(b) &amp; t2(2) --&gt; e2
-  c(c) &amp; t3(2) --&gt; e3
-  d(d) &amp; t4(2) --&gt; e4
+  m1[*] &amp; m2[*] --&gt; p[+]
+  e1[^] &amp; e2[^] --&gt; m1
+  e3[^] &amp; e4[^] --&gt; m2
+  a[a] &amp; t1[2] --&gt; e1
+  b[b] &amp; t2[2] --&gt; e2
+  c[c] &amp; t3[2] --&gt; e3
+  d[d] &amp; t4[2] --&gt; e4
 </code></pre><p>In algebra this can be written succinctly:</p>
 <p>$$a^2 b^2 + c^2 d^2$$</p>
 <p>However, now consider this similar looking structure:</p>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart BT
-  m(*) &amp; t(2) --&gt; e(^)
-  p1(+) &amp; p2(+) --&gt; m
-  a(a) &amp; b(b) --&gt; p1
-  c(c) &amp; d(d) --&gt; p2
+  m[*] &amp; t[2] --&gt; e[^]
+  p1[+] &amp; p2[+] --&gt; m
+  a[a] &amp; b[b] --&gt; p1
+  c[c] &amp; d[d] --&gt; p2
 </code></pre><p>Here we are not as fortunate:</p>
 <p>$$((a + b)(c + d))^2$$</p>
 <p>What&rsquo;s happening is we&rsquo;re using order of operations as a tool to elide
@@ -234,7 +239,7 @@ parenthesis. <!-- raw HTML omitted --></p>
 variations of C&rsquo;s syntax. C was the successor to B was the successor to BCPL was
 the successor to CPL, which stands for Cambridge Programming Language and was
 designed at Cambridge University, a place steeped in mathematical tradition<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.
-That&rsquo;s popular programming languages and math have to much syntax in common,
+That&rsquo;s why popular programming languages and math have to much syntax in common,
 including variables, using parenthesis as the primary means to structure
 expressions, and using parenthesis to call functions.</p>
 <p>I would like to introduce you to two languages which take a different approach:
@@ -289,19 +294,19 @@ using it.</li>
 copy of it&rsquo;s value.</li>
 <li><code>;</code> is called nop, and represents leaving a value on the stack unnaffected.</li>
 </ul>
-<p>The lower half of each symbol represents whether the value is use or not, and
+<p>The lower half of each symbol represents whether the value is used or not, and
 the top half represents whether it&rsquo;s left on the stack. We use these by
 decorating our functions with them, so they line up positionally with the
 arguments they refer to. Using our previous example</p>
 <p>$$ \frac 1 {\sqrt{x^2 + y^2}} + \sqrt{x^2 + y^2} $$</p>
 <p>we would write</p>
-<pre tabindex="0"><code>x 2 ..^ y 2 ..^ ..+ .sqrt 1 ., .:/ ..+
+<pre tabindex="0"><code>x 2 ..^ y 2 ..^ ..+ .sqrt 1 .; .:/ ..+
 </code></pre><p>Let&rsquo;s break this down. <code>x 2 ..^</code> says to remove both <code>x</code> and <code>2</code> form the stack,
 take <code>x</code> to the power of <code>2</code>, and push the result onto the stack. By the time we
-get to <code>1</code> our stack is <code>r 1</code>. We need <code>1</code> to the left of <code>r</code>, so we do <code>.,</code>.
+get to <code>1</code> our stack is <code>r 1</code>. We need <code>1</code> to the left of <code>r</code>, so we do <code>.;</code>.
 When we use these decorators without a function name, we&rsquo;re calling the identity
 function that just takes it&rsquo;s arguments and pushes them back onto the stack. The
-<code>,</code> says to ignore the <code>1</code>, and the <code>.</code> says to take the <code>r</code>, and so we end up
+<code>;</code> says to ignore the <code>1</code>, and the <code>.</code> says to take the <code>r</code>, and so we end up
 with <code>1 r</code> on the stack. Then <code>.:/</code> says to take <code>1</code> and copy <code>r</code>, so that we
 end up with <code>r 1/r</code> on the stack, and finally <code>..+</code> gives us our result. Note
 that I&rsquo;ve explained this as a sequence of stateful operations, but we should
@@ -331,7 +336,7 @@ c$.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9
 </li>
 <li id="fn:3">
 <p>I&rsquo;ve never actually written Haskell or Forth. In this post I&rsquo;m not really
-talking about these languages as a whole, I&rsquo;m actually talking about highly
+talking about these languages as a whole, I&rsquo;m really talking about highly
 simplified versions of these languages.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>

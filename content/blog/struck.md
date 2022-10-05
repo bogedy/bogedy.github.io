@@ -122,20 +122,20 @@ structure that looks like this:
 
 ```mermaid
 flowchart BT 
-  D(/) --> P(+) 
-  O(1) & S1("√") --> D
-  P1(+) --> S1
-  E11(^) & E12(^) --> P1
-  X1(x) & T11(2) --> E11
-  Y1(y) & T12(2) --> E12
-  S2("√") --> P
-  P2(+) --> S2
-  E21(^) --> P2
-  X2(x) --> E21
-  T21(2) --> E21
-  E22(^) --> P2
-  Y2(y) --> E22
-  T22(2) --> E22
+  D["/"] --> P[+] 
+  O[1] & S1["√"] --> D
+  P1[+] --> S1
+  E11[^] & E12[^] --> P1
+  X1[x] & T11[2] --> E11
+  Y1[y] & T12[2] --> E12
+  S2["√"] --> P
+  P2[+] --> S2
+  E21[^] --> P2
+  X2[x] --> E21
+  T21[2] --> E21
+  E22[^] --> P2
+  Y2[y] --> E22
+  T22[2] --> E22
 ```
 
 Now as you'll probably notice, there's a huge chunk of this tree that is
@@ -149,20 +149,20 @@ This corresponds to the structure
 
 ```mermaid
 flowchart BT 
-  D(/) --> P(+) 
-  O(1) --> D
-  R1(r) --> D
-  R2(r) --> P
+  D["/"] --> P[+] 
+  O[1] --> D
+  R1[r] --> D
+  R2[r] --> P
 
-  R(r) --> EQ(=)
-  S1("√") --> EQ
-  P1(+) --> S1
-  E11(^) --> P1
-  X1(x) --> E11
-  T11(2) --> E11
-  E12(^) --> P1
-  Y1(y) --> E12
-  T12(2) --> E12
+  R[r] --> EQ[=]
+  S1["√"] --> EQ
+  P1[+] --> S1
+  E11[^] --> P1
+  X1[x] --> E11
+  T11[2] --> E11
+  E12[^] --> P1
+  Y1[y] --> E12
+  T12[2] --> E12
 ```
 
 However, looking at the tree, we can imagine an even more straightforward
@@ -170,16 +170,16 @@ solution:
 
 ```mermaid
 flowchart BT 
-  D(/) --> P(+) 
-  O(1) --> D
-  S1("√") --> D
-  P1(+) --> S1
-  E11(^) --> P1
-  X1(x) --> E11
-  T11(2) --> E11
-  E12(^) --> P1
-  Y1(y) --> E12
-  T12(2) --> E12
+  D["/"] --> P[+] 
+  O[1] --> D
+  S1["√"] --> D
+  P1[+] --> S1
+  E11[^] --> P1
+  X1[x] --> E11
+  T11[2] --> E11
+  E12[^] --> P1
+  Y1[y] --> E12
+  T12[2] --> E12
   S1 --> P
 ```
 
@@ -218,13 +218,13 @@ Consider an expression with the following structure:
 
 ```mermaid
 flowchart BT
-  m1(*) & m2(*) --> p(+)
-  e1(^) & e2(^) --> m1
-  e3(^) & e4(^) --> m2
-  a(a) & t1(2) --> e1
-  b(b) & t2(2) --> e2
-  c(c) & t3(2) --> e3
-  d(d) & t4(2) --> e4
+  m1[*] & m2[*] --> p[+]
+  e1[^] & e2[^] --> m1
+  e3[^] & e4[^] --> m2
+  a[a] & t1[2] --> e1
+  b[b] & t2[2] --> e2
+  c[c] & t3[2] --> e3
+  d[d] & t4[2] --> e4
 ```
 
 In algebra this can be written succinctly:
@@ -235,10 +235,10 @@ However, now consider this similar looking structure:
 
 ```mermaid
 flowchart BT
-  m(*) & t(2) --> e(^)
-  p1(+) & p2(+) --> m
-  a(a) & b(b) --> p1
-  c(c) & d(d) --> p2
+  m[*] & t[2] --> e[^]
+  p1[+] & p2[+] --> m
+  a[a] & b[b] --> p1
+  c[c] & d[d] --> p2
 ```
 
 Here we are not as fortunate:
@@ -267,7 +267,7 @@ The syntax's of all the most popular programming languages in the world are just
 variations of C's syntax. C was the successor to B was the successor to BCPL was
 the successor to CPL, which stands for Cambridge Programming Language and was
 designed at Cambridge University, a place steeped in mathematical tradition[^2].
-That's popular programming languages and math have to much syntax in common,
+That's why popular programming languages and math have to much syntax in common,
 including variables, using parenthesis as the primary means to structure
 expressions, and using parenthesis to call functions.
 
@@ -288,7 +288,7 @@ the right (after the function). This has some interesting consequences. For
 example, in Haskell we can do things like:
 
 [^3]: I've never actually written Haskell or Forth. In this post I'm not really
-talking about these languages as a whole, I'm actually talking about highly
+talking about these languages as a whole, I'm really talking about highly
 simplified versions of these languages.
 
 ```haskell
@@ -357,7 +357,7 @@ stack values into a function.
   copy of it's value.
 - `;` is called nop, and represents leaving a value on the stack unnaffected.
 
-The lower half of each symbol represents whether the value is use or not, and
+The lower half of each symbol represents whether the value is used or not, and
 the top half represents whether it's left on the stack. We use these by
 decorating our functions with them, so they line up positionally with the
 arguments they refer to. Using our previous example
@@ -367,15 +367,15 @@ $$ \frac 1 {\sqrt{x^2 + y^2}} + \sqrt{x^2 + y^2} $$
 we would write
 
 ```
-x 2 ..^ y 2 ..^ ..+ .sqrt 1 ., .:/ ..+
+x 2 ..^ y 2 ..^ ..+ .sqrt 1 .; .:/ ..+
 ```
 
 Let's break this down. `x 2 ..^` says to remove both `x` and `2` form the stack,
 take `x` to the power of `2`, and push the result onto the stack. By the time we
-get to `1` our stack is `r 1`. We need `1` to the left of `r`, so we do `.,`.
+get to `1` our stack is `r 1`. We need `1` to the left of `r`, so we do `.;`.
 When we use these decorators without a function name, we're calling the identity
 function that just takes it's arguments and pushes them back onto the stack. The
-`,` says to ignore the `1`, and the `.` says to take the `r`, and so we end up
+`;` says to ignore the `1`, and the `.` says to take the `r`, and so we end up
 with `1 r` on the stack. Then `.:/` says to take `1` and copy `r`, so that we
 end up with `r 1/r` on the stack, and finally `..+` gives us our result. Note
 that I've explained this as a sequence of stateful operations, but we should
