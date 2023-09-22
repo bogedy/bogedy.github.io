@@ -6,4 +6,5 @@ draft: false
 
 I'm Aaron Kriegman. Right now I'm studying math at Cambridge University. I like
 to make cool graphics / math coding projects that you can check out at my
-[GitHub](https://github.com/akriegman).
+[GitHub](https://github.com/akriegman). I also make music and do other fun
+things.

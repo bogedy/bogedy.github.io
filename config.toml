@@ -1,6 +1,6 @@
 baseURL = "http://aaron.kriegman.net/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Aaron Kriegman"
 theme = "k.cc"
 params = { author = "Aaron Kriegman" }
 

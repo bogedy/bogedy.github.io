@@ -197,7 +197,7 @@
 
 @font-face {
   font-family: 'GoMonoRegular';
-  src: url('font/GoMonoRegular.ttf') format('truetype');
+  src: url('/font/GoMonoRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
