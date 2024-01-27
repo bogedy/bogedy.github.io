@@ -1,6 +1,6 @@
-# aaron.kriegman.net
+# isaiah.kriegman.net
 
-My website, with a simple Hugo theme based off of Lexi Hale's
+My BROTHER'S website THAT I'VE SHAMELESSLY COPIED, with a simple Hugo theme based off of Lexi Hale's
 [ʞ.cc](http://xn--rpa.cc/). I liked her website, but I wanted to write pages in
 markdown and automate things like header generation, so I translated her site
 structure into a Hugo theme, using her style sheet that she was nice enough to
