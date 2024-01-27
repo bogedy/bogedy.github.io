@@ -1,0 +1,20 @@
+{
+  "name": "rust_snake",
+  "description": "Snake in Rust wasm",
+  "version": "0.1.0",
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bogedy/rust_snake"
+  },
+  "files": [
+    "rust_snake_bg.wasm",
+    "rust_snake.js",
+    "rust_snake.d.ts"
+  ],
+  "module": "rust_snake.js",
+  "types": "rust_snake.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

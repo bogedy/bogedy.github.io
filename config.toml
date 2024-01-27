@@ -1,8 +1,13 @@
-baseURL = "http://aaron.kriegman.net/"
+baseURL = "http://isaiah.kriegman.net/"
 languageCode = "en-us"
-title = "Aaron Kriegman"
+title = "Isaiah Kriegman"
 theme = "k.cc"
-params = { author = "Aaron Kriegman" }
+[params] 
+    author = "Isaiah Kriegman"
+    favicon = "/favicon.ico"
 
 [markup.highlight]
 style = "dracula"
+
+[markup.goldmark.renderer]
+  unsafe = true # Allow HTML in md files
