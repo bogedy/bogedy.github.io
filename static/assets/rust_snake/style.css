@@ -1,4 +1,5 @@
 canvas {
     image-rendering: pixelated;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(105, 238, 255);
+    background-color: white;
 }

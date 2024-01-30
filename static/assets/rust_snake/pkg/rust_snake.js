@@ -337,9 +337,6 @@ function __wbg_get_imports() {
     imports.wbg.__wbg_stroke_d6cd6e7c98952ff8 = function(arg0) {
         getObject(arg0).stroke();
     };
-    imports.wbg.__wbg_clearRect_d976768ba14de6f9 = function(arg0, arg1, arg2, arg3, arg4) {
-        getObject(arg0).clearRect(arg1, arg2, arg3, arg4);
-    };
     imports.wbg.__wbg_fillRect_ae135cf52671cb3d = function(arg0, arg1, arg2, arg3, arg4) {
         getObject(arg0).fillRect(arg1, arg2, arg3, arg4);
     };
