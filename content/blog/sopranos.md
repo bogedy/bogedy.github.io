@@ -2,7 +2,7 @@
 title: "Tony Soprano Says No to Mental Health"
 description: "I think The Sopranos gets 'mental health' right"
 date: 2024-02-25
-draft: true
+draft: false
 ---
 
 People tell me all the time that I ought to see a therapist. Not that *I* in particular need to see one but that all people do. I used to be very open to the thought but now I say no. People are incredulous, so I thought I'd write up how *The Sopranos* gets me. Spoilers ahead, this is for people who have seen it. But if you haven't, the gist is that Tony the mobster is really stressed out and has panic attacks so he starts seeing a shrink.
