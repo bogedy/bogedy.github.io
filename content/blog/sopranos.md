@@ -45,7 +45,7 @@ Our intrepid aforementioned shrink tells Carmela "He's cheating on you? Well, do
 
 I once started therapy to work on my fear of talking to women after reading some advice that men can benefit from studying their insecurities with a shrink. I sat down and explained to the therapist that I was afraid of talking to women. And as soon as I said that I thought to myself "Why the hell am I in this therapist's office instead of trying to meet women?" I started talking to girls at bars and parties and never came back. My problems were so obviously out there and not in the office. And, voilà, addressing the problem worked.
 
-## Not all therapy is wrong.
+## Not all therapy is wrong
 
 I don't know if you need to dismiss therapy like I have. I can see it helping with insurmountable anguish. And if you are like Tony and have resigned to live a life of sin, I suppose that therapy could help to cope with the inevitable subsequent misery. But for most of us who just feel a little aimless in life and have people telling us to see a shrink, consider instead that we're much better off just cleaning our bedrooms, reconnecting with friends and doing that hard thing that we know that we've been putting off. The best therapist in the whole show, the one who told Carmella to wake up, was just calling it like he saw it and refused to take her money. The only thing that could help the Sopranos was brutal truth, and you don't need a therapist to get that. Just honest, caring people.
 
