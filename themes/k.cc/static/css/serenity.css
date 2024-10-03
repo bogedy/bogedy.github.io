@@ -211,8 +211,8 @@
 :root {
   --hue: 215;
   --width: 35rem;
-  --bright: 12%;
-  --link-br: 73%;
+  --bright: 86%;
+  --link-br: 3  2%;
   --hover: 22%; }
 
 ::selection {
@@ -232,9 +232,9 @@ body {
       color: black; } }
   @media screen {
     body {
-      --fg-color: hsl(var(--hue),100%,89%);
+      --fg-color: hsl(var(--hue),100%,12%);
       --bg-color: hsl(var(--hue),84%,var(--bright));
-      --faint-color: hsl(var(--hue),64%,64%);
+      --faint-color: hsl(var(--hue),64%,50%);
       max-width: var(--width);
       margin: auto;
       margin-top: 1em;
@@ -320,7 +320,7 @@ h5 {
 @media screen {
   /* dim the pathbar */
   h1 a[href], h3 a[href] {
-    color: hsl(var(--hue), 50%, 70%); } }
+    color: hsl(var(--hue), 50%, 40%); } }
 
 p {
   margin: 0.7em 0;
@@ -350,6 +350,7 @@ code.listing, p code, li code {
   /* text-shadow: 0px 1.2px 0px #2A0017; */
   border: 1px solid #2A0017;
   font-family: "GoMonoRegular", monospace;
+  color: white;
   /* box-shadow: 0 0 5px -2px black inset; */
 } 
   body > code strong, pre > code strong, code.listing strong, p code strong, li code strong {
@@ -561,7 +562,7 @@ blockquote, aside {
   font-size: 90%; }
   @media screen {
     blockquote, aside {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(6, 102, 147, 0.5);
       outline: 1px solid hsl(var(--hue), 100%, calc(var(--bright) - 8%)); } }
   blockquote > blockquote, aside > blockquote, blockquote > aside, aside > aside {
     margin-bottom: 1em; }
