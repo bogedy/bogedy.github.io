@@ -232,7 +232,7 @@ body {
       color: black; } }
   @media screen {
     body {
-      --fg-color: hsl(var(--hue),100%,12%);
+      --fg-color: hsl(var(--hue),50%, 27%);
       --bg-color: hsl(var(--hue),84%,var(--bright));
       --faint-color: hsl(var(--hue),64%,50%);
       max-width: var(--width);
