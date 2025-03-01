@@ -11,7 +11,7 @@ I want to add one bit: what about China? Their culture also revolves around fami
 
 Could it be the communists and their war on the family? For most of Chinese civilization Chinese people were clan oriented. This changed when the communists endeavored to replace every source of tradition and authority with the party. During the cultural revolution, streets like "Five Generations In One House Street" were given new names like "Class Struggle Street". An underappreciatad aspect of the one-child policy was that it de facto destroyed most Chinese clans. 
 
-But, other East Asian countries with no communist revolutions also face plummeting birth rates and share the same family-oriented culture.
+But, other East Asian countries without histories of communist revolutions also face plummeting birth rates and share the same family-oriented culture.
 
 Could it be the rapid economic growth? There are many great Chinese films on the topic of rapid economic growth and how it has disrupted families and traditions. The 1999 film [*Shower*](https://www.youtube.com/watch?v=qcwZfUMDB0w) tells the story of an older father running a quaint Beijing bathhouse and his relationship to his suit donning businessman son in faraway Shenzhen. The 2009 documentary [*Last Train Home*](https://www.youtube.com/watch?v=q07bMuQLrbY) depicts a daughter who leaves her family to work in a factory and find independence after her parents left to work in factory in order to provide for her. The mass migration of people from the countryside to the cities rips families and local ties apart. Changing financial incentives can draw people away from their families.
 
