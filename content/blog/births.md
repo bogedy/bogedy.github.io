@@ -9,7 +9,7 @@ This is a good article that dispels some of the single-variable explanations of 
 
 I want to add one bit: what about China? Their culture also revolves around family, but their birthrate is plummeting. I recall in the book *Wild Swans* that the author's grandmother lived in a home with five generations under one roof. This was so admirable to early 20th century Chinese that their whole street was renamed to "Five Generations In One House Street".
 
-Could it be the communists and their war on the family? For most of Chinese civilization Chinese people were clan oriented. This changed when the communists endeavored to replace every source of tradition and authority with the party. During the cultural revolution, streets like "Five Generations In One House Street" were given new names like "Class Struggle Street". An underappreciatad aspect of the one-child policy was that it de facto destroyed most Chinese clans. 
+Could it be the communists and their war on the family? For most of Chinese civilization Chinese people were clan oriented. This changed when the communists endeavored to replace every source of tradition and authority with the party. During the cultural revolution, streets like "Five Generations In One House Street" were given new names like "Class Struggle Street". An underappreciated aspect of the one-child policy was that it de facto destroyed most Chinese clans. 
 
 But, other East Asian countries without histories of communist revolutions also face plummeting birth rates and share the same family-oriented culture.
 
