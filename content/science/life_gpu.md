@@ -4,13 +4,39 @@ date: 2024-05-05T00:06:49Z
 draft: false
 ---
 
-Just serving the results of this Google [Codelab](https://codelabs.developers.google.com/your-first-webgpu-app). Starts with a random layout on each refresh. The compute and shading is all done on your GPU! Each active square is made up of two triangles. [Source code](https://github.com/bogedy/webgpu_codelab).
+This is running on your GPU! Each updated cell is computed in parallel.
 
-# !!!As of today it will only work in Chrome based browsers!!! 
-Desktop Safari and Firefox support WebGPU with a flag switch and most mobile browsers don't support it yet. See support [here](https://caniuse.com/?search=webgpu).
+You may need to enable WebGPU in your browser, see compatibility [here](https://caniuse.com/?search=webgpu).
 
-<link rel="stylesheet" type="text/css" href="/assets/rust_snake/style.css">
+<style>
+  canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+  }
+  
+  .controls {
+    text-align: center;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .controls input[type="range"] {
+    width: 200px;
+    margin: 0 10px;
+  }
+</style>
 
-<canvas width="512" height="512"></canvas>
-
-<script type="module" src="/assets/life_gpu/main.js"></script>
+<canvas width="2048" height="2048"></canvas>
+    <script src="/assets/life_gpu/main.js"></script>
+    <div class="controls">
+      Updates per second
+      <input type="range" id="speedSlider" min="1" max="60" step="1" value="5">
+      <span id="speedValue">5</span><br>
+      Size
+      <input type="range" id="sizeSlider" min="8" max="512" step="8" value="32">
+      <span id="sizeValue">32</span><br>
+      <button id="restartBtn">Restart with new size</button>
+    </div>
