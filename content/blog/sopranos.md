@@ -29,7 +29,7 @@ I saw an amazing tweet on this recently, it went something like this:
 
 The cynical take on therapists is they just want to make a buck. But I think the more likely explanation is that they enjoy feeling important. It must feel good to be a therapist today with so many people insisting that paying you hundreds an hour to TALK is essential for happiness.[^1] Towards the end of the show, Tony tells Dr. Melfi that he's done and asks what he has to show for all this therapy. It's a good question.
 
-[^1]: Marxists are conspicuously silent on the class exploitation of bourgeois therapists on depressed young progressives. Emotional laborers of the world, rise up!
+[^1]: Marxists are conspicuously silent on the class exploitation of depressed young progressives by bourgeois therapists. Emotional laborers of the world, rise up.
 
 On the flip side, the patient can also be uninterested in a cure. Tony also called the therapy "masturbatory," and had obviously used therapy to deal with the trauma of his evil enterprise throughout the show. Other therapists in the show pointed out the futility of the whole exercise. In a great [scene](https://www.youtube.com/watch?v=bzVeLjj6Ao8), one therapist tells Carmela bluntly that this is the bed she made. She says of Tony "My priest said I should try and work with him and help him to be a better man." The therapist cuts through all the phoniness of modern therapy and Carla's excuse-making at once by simply saying "How's that going?" 
 
