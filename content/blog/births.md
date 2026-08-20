@@ -1,5 +1,5 @@
 ---
-title: "Why Israel has a higher birthrate than China"
+title: "Why Israel Has a Higher Birthrate Than China"
 description: "Both cultures are family-oriented, so why does Israel have so many more babies?"
 date: 2025-02-27T06:37:25Z
 draft: false
