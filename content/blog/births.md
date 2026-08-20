@@ -40,7 +40,7 @@ Some photos I took:
     <figure>
         <img src="/assets/births/ad.png" 
              style="max-width: 100%; height: auto;">
-        <figcaption>Woman. Born in '87. Weighs 50kg. Works in design of some sort. Seeking man born after '85 and approximately 1.75m (I'm not so good at reading handwriting though). </figcaption>
+        <figcaption>Woman. Born in '87. Weighs 50kg. Works as a designer. Seeking man born after '85 and approximately 1.75m. </figcaption>
     </figure>
     <figure>
         <img src="/assets/births/banner.jpg"
